@@ -1,0 +1,114 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-success: var(--success);
+  --color-success-foreground: var(--success-foreground);
+  --color-warning: var(--warning);
+  --color-warning-foreground: var(--warning-foreground);
+  --color-brand-deep: var(--brand-deep);
+  --color-brand-purple: var(--brand-purple);
+  --color-brand-teal: var(--brand-teal);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --font-display: var(--font-display);
+}
+
+:root {
+  --radius: 0.75rem;
+
+  /* Brand palette from BiblioTrack logo (oklch equivalents) */
+  --brand-deep: oklch(0.295 0.12 265);     /* #1E3A8A azul oscuro */
+  --brand-blue: oklch(0.62 0.20 258);      /* #3B82F6 azul claro */
+  --brand-purple: oklch(0.55 0.27 295);    /* #9333EA morado */
+  --brand-teal: oklch(0.69 0.12 185);      /* #14B8A6 verde azulado */
+
+  --background: oklch(0.985 0.004 250);    /* casi blanco con tinte azul */
+  --foreground: oklch(0.18 0.05 265);
+
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.18 0.05 265);
+
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.18 0.05 265);
+
+  --primary: var(--brand-deep);
+  --primary-foreground: oklch(1 0 0);
+
+  --secondary: oklch(0.96 0.01 250);       /* #F3F4F6 */
+  --secondary-foreground: var(--brand-deep);
+
+  --muted: oklch(0.96 0.01 250);
+  --muted-foreground: oklch(0.45 0.03 260);
+
+  --accent: var(--brand-blue);
+  --accent-foreground: oklch(1 0 0);
+
+  --destructive: oklch(0.6 0.22 25);
+  --destructive-foreground: oklch(1 0 0);
+
+  --success: var(--brand-teal);
+  --success-foreground: oklch(1 0 0);
+
+  --warning: oklch(0.78 0.16 75);
+  --warning-foreground: oklch(0.2 0.05 60);
+
+  --border: oklch(0.9 0.015 255);
+  --input: oklch(0.92 0.015 255);
+  --ring: var(--brand-blue);
+
+  --font-display: "Inter", ui-sans-serif, system-ui, sans-serif;
+}
+
+@layer base {
+  * { border-color: var(--color-border); }
+  html, body { font-family: var(--font-display); }
+  body {
+    background:
+      radial-gradient(1200px 600px at 10% -10%, color-mix(in oklch, var(--brand-blue) 12%, transparent), transparent),
+      radial-gradient(800px 500px at 110% 10%, color-mix(in oklch, var(--brand-teal) 12%, transparent), transparent),
+      var(--color-background);
+    color: var(--color-foreground);
+    min-height: 100vh;
+  }
+  h1, h2, h3 { color: var(--brand-deep); letter-spacing: -0.01em; }
+}
+
+@layer utilities {
+  .text-brand-gradient {
+    background: linear-gradient(90deg, var(--brand-deep), var(--brand-teal));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .bg-brand-gradient {
+    background: linear-gradient(135deg, var(--brand-deep), var(--brand-blue) 55%, var(--brand-purple));
+  }
+  .shadow-elevated {
+    box-shadow: 0 10px 30px -12px color-mix(in oklch, var(--brand-deep) 35%, transparent);
+  }
+}

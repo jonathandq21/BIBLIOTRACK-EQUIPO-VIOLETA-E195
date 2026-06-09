@@ -4,7 +4,7 @@ Sistema de gestión bibliotecaria desarrollado para el curso de Arquitectura de 
 
 ## 🚀 Aplicación en línea
 
-🔗 **Acceder a Bibliotrack:** https://book-track-suite.lovable.app/login
+🔗 **Acceder a Bibliotrack:** https://book-track-suite.lovable.app/
 
 ---
 
